@@ -78,9 +78,13 @@ public class DetailStoryActivity extends AppCompatActivity {
                         COMMENT_COUNT = jsonObjectDetail.length();
                         tv_status_progress.setText("Load Comments...");
                         try {
-                            JSONArray jsonArray = response.getJSONArray("kids");
-                            for(int i =0;i<jsonArray.length();i++){
-                                doServiceeGetComment(jsonArray.getString(i));
+                            if(response.has("kids")){
+                                JSONArray jsonArray = response.getJSONArray("kids");
+                                for(int i =0;i<jsonArray.length();i++){
+                                    doServiceeGetComment(jsonArray.getString(i));
+                                }
+                            }else {
+                                updatePage();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

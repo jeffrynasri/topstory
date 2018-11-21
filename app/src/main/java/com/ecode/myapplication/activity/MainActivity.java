@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         tv_progress = (TextView) findViewById(R.id.tv_progress_activity_main);
 
         initRecyclerView();
-        //doServiceeGetTopStory();
-        Intent intent = new Intent(this, DetailStoryActivity.class);
-        intent.putExtra("storyId","18501327");
-        startActivity(intent);
+        doServiceeGetTopStory();
+//        Intent intent = new Intent(this, DetailStoryActivity.class);
+//        intent.putExtra("storyId","18501327");
+//        startActivity(intent);
     }
 
     private void doServiceeGetTopStory(){
