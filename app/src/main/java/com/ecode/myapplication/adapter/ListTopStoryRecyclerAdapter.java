@@ -1,5 +1,6 @@
 package com.ecode.myapplication.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListTopStoryRecyclerAdapter extends RecyclerView.Adapter<ListTopStoryRecyclerAdapter.CategoryViewHolder> {
+    int REQUEST_FOR_ACTIVITY_CODE =24;
     String _prefixComment = "Comment : ";
     String _prefixScore = "Score : ";
     private Context context;
@@ -55,7 +57,8 @@ public class ListTopStoryRecyclerAdapter extends RecyclerView.Adapter<ListTopSto
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DetailStoryActivity.class);
                     intent.putExtra("storyId",storyId);
-                    context.startActivity(intent);
+                    //context.startActivity(intent);
+                    ((Activity) context).startActivityForResult(intent,REQUEST_FOR_ACTIVITY_CODE);
                 }
             });
             setAnimation(holder.itemView, position);

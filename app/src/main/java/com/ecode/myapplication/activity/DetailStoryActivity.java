@@ -1,5 +1,7 @@
 package com.ecode.myapplication.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,6 +59,30 @@ public class DetailStoryActivity extends AppCompatActivity {
 
         getIntentData();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.d("soy", (String) iv_favorite.getTag());
+        if(iv_favorite.getTag().toString().equals("off")){
+            Log.d("soy", "off");
+            Intent returnIntent = new Intent();
+            setResult(Activity.RESULT_CANCELED, returnIntent);
+            finish();
+        }else {
+            try {
+                Intent returnIntent = new Intent();
+                Log.d("soy", jsonObjectDetail.getString("title"));
+                returnIntent.putExtra("favorite",jsonObjectDetail.getString("title"));
+                setResult(Activity.RESULT_OK,returnIntent);
+                finish();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
     private void getIntentData(){
         storyId = getIntent().getExtras().getString("storyId");
         ll_content.setVisibility(View.GONE);
@@ -121,7 +147,19 @@ public class DetailStoryActivity extends AppCompatActivity {
                 });
     }
     private void updatePage(){
-        //iv_favorite
+        iv_favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(iv_favorite.getTag().toString().equals("off")){
+                    iv_favorite.setTag("on");
+                    iv_favorite.setImageDrawable(getResources().getDrawable(R.drawable.heart_on));
+                }else if(iv_favorite.getTag().toString().equals("on")){
+                    iv_favorite.setTag("off");
+                    iv_favorite.setImageDrawable(getResources().getDrawable(R.drawable.heart_off));
+                }
+
+            }
+        });
         try {
             tv_tittle.setText(jsonObjectDetail.getString("title"));
             tv_author.setText(_prefixAuthor+jsonObjectDetail.getString("by"));
@@ -139,8 +177,17 @@ public class DetailStoryActivity extends AppCompatActivity {
                 TextView date = commentLayout.findViewById(R.id.tv_date_item_list_comment);
                 TextView comment = commentLayout.findViewById(R.id.tv_comment_item_list_comment);
                 JSONObject jsonObject = jsonArrayComment.getJSONObject(i);
-                author.setText(jsonObject.getString("by"));
-                comment.setText(jsonObject.getString("text"));
+                if(jsonObject.has("by")){
+                    author.setText(jsonObject.getString("by"));
+                }else {
+                    author.setText("Anonymous");
+                }
+                if(jsonObject.has("text")){
+                    comment.setText(jsonObject.getString("text"));
+                }else {
+                    comment.setText("-");
+                }
+
                 date.setText(DateProcessing.printDate(jsonObject.getLong("time"),false,DateProcessing.fDayMonthYear));
                 ll_comment.addView(commentLayout);
             } catch (JSONException e) {
@@ -151,4 +198,5 @@ public class DetailStoryActivity extends AppCompatActivity {
         rl_progress.setVisibility(View.GONE);
         ll_content.setVisibility(View.VISIBLE);
     }
+
 }

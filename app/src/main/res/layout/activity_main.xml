@@ -32,7 +32,7 @@
         android:id="@+id/tv_tittle_activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tittle"
+        android:text="-"
         android:layout_marginLeft="@dimen/marginHorizomtal"
         android:layout_marginRight="@dimen/marginHorizomtal"
         android:textAlignment="center"

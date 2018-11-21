@@ -1,5 +1,6 @@
 package com.ecode.myapplication.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     //HELPER
+    int REQUEST_FOR_ACTIVITY_CODE =24;
     int TOPSTORY_COUNT=0;
     JSONArray jsonArray = new JSONArray();
     ListTopStoryRecyclerAdapter listTopStoryRecyclerAdapter;
@@ -48,7 +50,20 @@ public class MainActivity extends AppCompatActivity {
 //        intent.putExtra("storyId","18501327");
 //        startActivity(intent);
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("soy", String.valueOf(requestCode));
+        if (requestCode == REQUEST_FOR_ACTIVITY_CODE) {
+            if(resultCode == Activity.RESULT_OK){
+                String result=data.getStringExtra("favorite");
+                Log.d("soy", String.valueOf(result));
+                tv_tittle_favorite.setText(result);
+            }else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.d("soy", "cancel");
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
     private void doServiceeGetTopStory(){
         AndroidNetworking.initialize(getApplicationContext());
         AndroidNetworking.get("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty")
