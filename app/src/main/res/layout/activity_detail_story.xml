@@ -5,62 +5,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.DetailStoryActivity"
-    android:layout_marginLeft="@dimen/marginHorizomtal"
-    android:layout_marginRight="@dimen/marginHorizomtal">
+    tools:context=".activity.DetailStoryActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="2dp">
+        <TextView
+            android:id="@+id/tv_tittle_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detail Story"
+            android:textColor="@android:color/white"
+            android:layout_toRightOf="@+id/iv_righttoolbar"
+            android:layout_centerVertical="true"/>
+    </android.support.v7.widget.Toolbar>
     <RelativeLayout
+        android:id="@+id/rl_progress_activity_detail_story"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginVertical">
-        <ImageView
-            android:id="@+id/iv_favorite_activity_detail_story"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@color/colorPrimary"
-            android:layout_alignParentRight="true" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/marginHorizomtal"
+        android:layout_marginRight="@dimen/marginHorizomtal">
+        <ProgressBar
+            android:id="@+id/pb_activity_detail_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/tv_status_activity_detail_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="status"
+            android:layout_below="@+id/pb_activity_detail_story"
+            android:layout_centerInParent="true"/>
     </RelativeLayout>
-    <TextView
-        android:id="@+id/tv_tittle_activity_detail_story"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TITTLE"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        />
-    <TextView
-        android:id="@+id/tv_author_activity_detail_story"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="By : -"
-        android:layout_marginTop="@dimen/marginVertical"/>
-    <TextView
-        android:id="@+id/tv_date_activity_detail_story"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="- / - / - " />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description : "
-        android:textSize="16sp"
-        android:layout_marginTop="@dimen/marginHorizomtalmedium"/>
-    <TextView
-        android:id="@+id/tv_description_activity_detail_story"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="-"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Comment : "
-        android:textSize="16sp"
-        android:layout_marginTop="@dimen/marginHorizomtalmedium"/>
     <LinearLayout
-        android:id="@+id/ll_comment_activity_setail_story"
+        android:id="@+id/ll_content_activity_detail_story"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/marginHorizomtal"
+        android:layout_marginRight="@dimen/marginHorizomtal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginVertical">
+            <ImageView
+                android:id="@+id/iv_favorite_activity_detail_story"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@color/colorPrimary"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_tittle_activity_detail_story"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TITTLE"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:id="@+id/tv_author_activity_detail_story"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="By : -"
+            android:layout_marginTop="@dimen/marginVertical"/>
+        <TextView
+            android:id="@+id/tv_date_activity_detail_story"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="- / - / - " />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description : "
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/marginHorizomtalmedium"/>
+        <TextView
+            android:id="@+id/tv_description_activity_detail_story"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comment : "
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/marginHorizomtalmedium"/>
+        <LinearLayout
+            android:id="@+id/ll_comment_activity_setail_story"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </LinearLayout>
+
 </LinearLayout>

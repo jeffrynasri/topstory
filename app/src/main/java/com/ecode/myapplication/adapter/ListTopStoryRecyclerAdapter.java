@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ecode.myapplication.R;
+import com.ecode.myapplication.activity.DetailStoryActivity;
 import com.ecode.myapplication.helper.ItemAnimation;
 
 import org.json.JSONArray;
@@ -49,7 +50,14 @@ public class ListTopStoryRecyclerAdapter extends RecyclerView.Adapter<ListTopSto
             holder.tv_tittle.setText(jsonObject.getString("title"));
             holder.tv_score.setText(_prefixScore+jsonObject.getString("score"));
             holder.tv_comment.setText(_prefixComment+jsonObject.getString("descendants"));
-
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, DetailStoryActivity.class);
+                    intent.putExtra("storyId",storyId);
+                    context.startActivity(intent);
+                }
+            });
             setAnimation(holder.itemView, position);
 
         } catch (JSONException e) {

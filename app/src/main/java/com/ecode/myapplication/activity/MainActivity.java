@@ -1,5 +1,6 @@
 package com.ecode.myapplication.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
         initRecyclerView();
         doServiceeGetTopStory();
+//        Intent intent = new Intent(this, DetailStoryActivity.class);
+//        intent.putExtra("storyId","18501327");
+//        startActivity(intent);
     }
 
     private void doServiceeGetTopStory(){
