@@ -24,8 +24,8 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     //HELPER
-    JSONArray jsonArray = new JSONArray();
     int TOPSTORY_COUNT=0;
+    JSONArray jsonArray = new JSONArray();
     ListTopStoryRecyclerAdapter listTopStoryRecyclerAdapter;
 
     //KONTEN
@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         tv_progress = (TextView) findViewById(R.id.tv_progress_activity_main);
 
         initRecyclerView();
-        doServiceeGetTopStory();
-//        Intent intent = new Intent(this, DetailStoryActivity.class);
-//        intent.putExtra("storyId","18501327");
-//        startActivity(intent);
+        //doServiceeGetTopStory();
+        Intent intent = new Intent(this, DetailStoryActivity.class);
+        intent.putExtra("storyId","18501327");
+        startActivity(intent);
     }
 
     private void doServiceeGetTopStory(){
