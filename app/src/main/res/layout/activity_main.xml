@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+        android:background="@color/colorPrimary"
+        android:elevation="2dp">
+        <TextView
+            android:id="@+id/tv_tittle_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top Story"
+            android:textColor="@android:color/white"
+            android:layout_toRightOf="@+id/iv_righttoolbar"
+            android:layout_centerVertical="true"/>
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Favorite : "
+        android:layout_marginLeft="@dimen/marginHorizomtal"
+        android:layout_marginRight="@dimen/marginHorizomtal"
+        />
+    <TextView
+        android:id="@+id/tv_tittle_activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tittle"
+        android:layout_marginLeft="@dimen/marginHorizomtal"
+        android:layout_marginRight="@dimen/marginHorizomtal"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        />
+    <ProgressBar
+        android:id="@+id/pb_activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginVertical"
+        />
+    <TextView
+        android:id="@+id/tv_progress_activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:text="- / -"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_list_topstory"
+        android:visibility="gone"/>
+</LinearLayout>

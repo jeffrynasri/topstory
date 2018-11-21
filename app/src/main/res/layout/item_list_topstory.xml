@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/marginHorizomtal"
+    android:layout_marginRight="@dimen/marginHorizomtal">
+    <TextView
+        android:id="@+id/tv_tittle_item_list_topstory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tittle"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/tv_comment_item_list_topstory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comment : -"
+        />
+    <TextView
+        android:id="@+id/tv_score_item_list_topstory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score : -"
+        android:gravity="end"
+        />
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DetailStoryActivity"
+    android:layout_marginLeft="@dimen/marginHorizomtal"
+    android:layout_marginRight="@dimen/marginHorizomtal">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginVertical">
+        <ImageView
+            android:id="@+id/iv_favorite_activity_detail_story"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@color/colorPrimary"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_tittle_activity_detail_story"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TITTLE"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:id="@+id/tv_author_activity_detail_story"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="By : -"
+        android:layout_marginTop="@dimen/marginVertical"/>
+    <TextView
+        android:id="@+id/tv_date_activity_detail_story"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="- / - / - " />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description : "
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/marginHorizomtalmedium"/>
+    <TextView
+        android:id="@+id/tv_description_activity_detail_story"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="-"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comment : "
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/marginHorizomtalmedium"/>
+    <LinearLayout
+        android:id="@+id/ll_comment_activity_setail_story"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+</LinearLayout>
